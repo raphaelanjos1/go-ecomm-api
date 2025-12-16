@@ -9,10 +9,10 @@ import (
 )
 
 type application struct {
-	config config
+	config configuration
 }
 
-type config struct {
+type configuration struct {
 	addr string
 }
 

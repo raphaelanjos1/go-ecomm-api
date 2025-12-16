@@ -3,11 +3,17 @@ package main
 import (
 	"log/slog"
 	"os"
+
+	"github.com/joho/godotenv"
+	"github.com/raphaelanjos1/go-ecomm-api/config"
 )
 
 func main() {
-	cfg := config{
-		addr: ":8080",
+	godotenv.Load("../.env")
+	port := config.GetString("PORT", ":8080")
+
+	cfg := configuration{
+		addr: port,
 	}
 
 	api := application{
