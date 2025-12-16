@@ -26,7 +26,7 @@ func (app *application) run(h http.Handler) error {
 	srv := &http.Server{
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 30 * time.Second,
-		Addr:         ":8080",
+		Addr:         app.config.addr,
 		Handler:      h,
 	}
 
