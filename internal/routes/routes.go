@@ -18,7 +18,9 @@ func NewRouter() http.Handler {
 
 	r.Use(middleware.Timeout(60 * time.Second))
 
-	r.Get("/v1/health-check", healthCheckHandler)
+	r.Route("/v1", func(r chi.Router) {
+		r.Get("/health-check", healthCheckHandler)
+	})
 
 	return r
 }
