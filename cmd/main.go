@@ -5,14 +5,14 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"github.com/raphaelanjos1/go-ecomm-api/config"
+	"github.com/raphaelanjos1/go-ecomm-api/utils"
 )
 
 func main() {
 	godotenv.Load("../.env")
-	port := config.GetString("PORT", ":8080")
+	port := utils.GetEnv("PORT", ":8080")
 
-	cfg := configuration{
+	cfg := config{
 		addr: port,
 	}
 
