@@ -5,15 +5,22 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/raphaelanjos1/go-ecomm-api/internal/routes"
 )
 
 type application struct {
 	config config
+	db     *pgx.Conn
 }
 
 type config struct {
 	addr string
+	db   dbConfig
+}
+
+type dbConfig struct {
+	dsn string
 }
 
 func (app *application) mount() http.Handler {
